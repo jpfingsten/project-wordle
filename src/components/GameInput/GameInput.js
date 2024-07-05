@@ -1,7 +1,7 @@
 import React from 'react';
 
 function GameInput() {
-  const [guess, setGuess] = React.useState({guess: ''});
+  const [guess, setGuess] = React.useState('');
 
   return (
     <form
@@ -9,19 +9,19 @@ function GameInput() {
       onSubmit={(event) => {
         event.preventDefault();
 
-        console.log(guess);
-        setGuess({guess: ''})
+        console.log('guess: ' + guess);
+        setGuess('')
       }}
     >
       <label htmlFor="guess-input">Enter guess:</label>
       <input
         id="guess-input"
         type="text"
-        value={guess['guess']}
+        value={guess}
         pattern="[a-zA-Z]{5}"
         title="5-letter word"
         onChange={(event) => {
-          const nextGuess = {guess: event.target.value.toUpperCase()};
+          const nextGuess = event.target.value.toUpperCase();
 
           setGuess(nextGuess);
         }}
