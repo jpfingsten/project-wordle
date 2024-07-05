@@ -1,6 +1,7 @@
 import React from 'react';
 
-function GameInput() {
+function GameInput({pastGuesses, setPastGuesses}) {
+  
   const [guess, setGuess] = React.useState('');
 
   return (
@@ -8,9 +9,15 @@ function GameInput() {
       className="guess-input-wrapper"
       onSubmit={(event) => {
         event.preventDefault();
+        if (guess === '') {
+          return;
+        }
 
-        console.log('guess: ' + guess);
-        setGuess('')
+        const newGuess = {word: guess, id: crypto.randomUUID()};
+        const nextPastGuesses = [...pastGuesses, newGuess];
+
+        setPastGuesses(nextPastGuesses);
+        setGuess('');
       }}
     >
       <label htmlFor="guess-input">Enter guess:</label>
