@@ -13,8 +13,7 @@ function GameInput({pastGuesses, setPastGuesses}) {
           return;
         }
 
-        const newGuess = {word: guess, id: crypto.randomUUID()};
-        const nextPastGuesses = [...pastGuesses, newGuess];
+        const nextPastGuesses = [...pastGuesses, guess];
 
         setPastGuesses(nextPastGuesses);
         setGuess('');

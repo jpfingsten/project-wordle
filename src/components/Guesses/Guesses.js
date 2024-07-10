@@ -1,11 +1,10 @@
 import React from 'react';
 
 function Guesses({pastGuesses}) {
-
   return (
     <div className="guess-results">
-      {pastGuesses.map(guess => (
-        <p key={guess['id']} className="guess">{guess['word']}</p>
+      {pastGuesses.map((guess, index) => (
+        <p key={index} className="guess">{guess}</p>
       ))}
     </div>
   );
