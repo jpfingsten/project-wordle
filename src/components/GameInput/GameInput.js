@@ -1,6 +1,6 @@
 import React from 'react';
 
-function GameInput({pastGuesses, setPastGuesses}) {
+function GameInput({pastGuesses, setPastGuesses, gameEnded}) {
   
   const [guess, setGuess] = React.useState('');
 
@@ -26,6 +26,7 @@ function GameInput({pastGuesses, setPastGuesses}) {
         value={guess}
         pattern="[a-zA-Z]{5}"
         title="5-letter word"
+        disabled={gameEnded}
         onChange={(event) => {
           const nextGuess = event.target.value.toUpperCase();
 
